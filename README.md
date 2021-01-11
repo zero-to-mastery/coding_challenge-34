@@ -1,5 +1,5 @@
 # Coding Challenge 34 - Date Night
-Build your own version of this game and add the fun(challenging) CSS animations*
+Build your own version of the below game and add the fun(challenging) CSS animations:*
 
 Last month, I discovered something fun: https://www.datenightquestions.com/
 
