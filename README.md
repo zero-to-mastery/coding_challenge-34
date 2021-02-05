@@ -17,7 +17,37 @@ If you click on the above link, you will see that this website has a card animat
 
 ## Submissions:
 
-Student Submissions will be posted here at the end of the challenge!
+Student Submissions will be posted here at the end of the challenge:
+
+Daniel Hadhazi#4939  
+Github Repo  
+https://github.com/Dhadhazi/date-night-questions  
+---------  
+  
+JamesUnderPressure#2667  
+Github Pages  
+https://haddockj.github.io/codingchallenge/  
+---------  
+  
+Yogi#0269  
+Github Pages  
+https://yogi1917.github.io/Melbourne/  
+---------  
+  
+Hristijan#2092  
+Heroku Deployment  
+https://quote-generator-hg.herokuapp.com/  
+---------  
+  
+Evan#0575  
+Other Link  
+https://master.d7vp4hauoyn5j.amplifyapp.com/  
+---------  
+  
+trulli90#0606  
+Github Pages  
+https://anjakhan.github.io/interview_qa/  
+---------  
 
 
 ## One Last Thing!
