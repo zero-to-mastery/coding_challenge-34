@@ -1,0 +1,82 @@
+html {
+  min-height: 100%;
+}
+
+.cover-container {
+  max-width: 42em;
+}
+
+.bgImage {
+  background: url("/images/cover.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.bgDayImg {
+  background: url("/images/day.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.bgNightImg {
+  background: url("/images/evening.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.purpleColor {
+  background-color: #578ae2;
+}
+
+.topCushion {
+  margin-top: 200px;
+}
+
+.chooseGameBtn {
+  margin: 20px;
+}
+
+/* CARD */
+
+.startPile {
+  width: 380px !important;
+}
+
+.questionCard {
+  perspective: 100rem;
+  cursor: pointer;
+  position: relative;
+  transition: transform 1.5s ease;
+  transform-style: preserve-3d;
+}
+
+.side {
+  font-size: 2rem;
+  height: 38rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem rgba(10, 11, 12, 0.3);
+}
+
+.front {
+  background: url("/images/dayCardImg.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.back {
+  background-color: white;
+  transform: rotateY(-180deg);
+}
+
+.flipCard {
+  transform: rotateY(180deg);
+}
