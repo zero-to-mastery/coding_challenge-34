@@ -1,0 +1,16 @@
+{
+  "dayBreakerQuestions": [
+    {
+      "name": "dayCard1",
+      "question": "What would you like to change about school?"
+    },
+    {
+      "name": "dayCard2",
+      "question": "What would you like to change about your home?"
+    },
+    {
+      "name": "dayCard3",
+      "question": "If you had to choose between, super speed or super stretch, for your superhero power, what would you choose?"
+    }
+  ]
+}

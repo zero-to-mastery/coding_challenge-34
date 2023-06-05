@@ -45,7 +45,7 @@
       </div>
       <div class="navbar shadow-lg purpleColor">
         <div class="container">
-          <a href="#" class="navbar-brand d-flex align-items-center">
+          <a href="/index.html" class="navbar-brand d-flex align-items-center">
             <?xml version="1.0" encoding="UTF-8"?>
             <svg
               width="50pt"
@@ -96,26 +96,34 @@
     </header>
 
     <div class="cardContainer row">
-      <div class="col-1-of-3">
-        <div class="">
-          <div class="discard">
+      <div class="col-1-of-3 startPile">
+        <div id="oneCol" class="questionCard">
+          <!-- <div class="side front">
+            <h2>Front</h2>
           </div>
+          <div class="side back questionHolder">
+            <p>back appendQuestion Here</p>
+          </div> -->
         </div>
       </div>
       <div class="col-1-of-3 startPile">
-        <div id="questionCard" class="questionCard">
-          <div class="side front">
+        <button id="startGmDayBtn" class="btn btn-lg btn-light fw-bold border-white bg-white startGmDayBtn" >
+            DAY WITH KIDS
+        </button>
+        <div id="secondCol" class="questionCard questionCardFlip">
+          <!-- <div class="side front">
             <h2>Front</h2>
           </div>
           <div class="side back">
-            <h2>back</h2>
-          </div>
+            <h3>back</h3>
+          </div> -->
         </div>
       </div>
       <div class="col-1-of-3">
-         <div class="">
-          <div class="discard"></div>
-        </div>
+        <div id="thirdCol"></div>
+         <!-- <div class="">
+          <div id="para" class="discard"></div>
+        </div> -->
       </div>
       </div>
     </div>
