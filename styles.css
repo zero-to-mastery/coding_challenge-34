@@ -40,13 +40,21 @@ html {
 }
 
 /* CARD */
-
+.cardContainer {
+  display: flex;
+  justify-content: space-around;
+  perspective: 150rem;
+}
 .startPile {
   width: 380px !important;
 }
 
+.discard {
+  min-height: 38rem; /* Adjust as needed */
+  min-width: 24rem; /* Adjust as needed */
+}
+
 .questionCard {
-  perspective: 100rem;
   cursor: pointer;
   position: relative;
   transition: transform 1.5s ease;
@@ -60,6 +68,7 @@ html {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 2;
   backface-visibility: hidden;
   border-radius: 5px;
   overflow: hidden;

@@ -95,35 +95,19 @@
       </div>
     </header>
 
-    <div class="cardContainer row">
-      <div class="col-1-of-3 startPile">
-        <div id="oneCol" class="questionCard">
-          <!-- <div class="side front">
-            <h2>Front</h2>
-          </div>
-          <div class="side back questionHolder">
-            <p>back appendQuestion Here</p>
-          </div> -->
-        </div>
-      </div>
-      <div class="col-1-of-3 startPile">
+    <div class="cardContainer">
+     
+      <div class="col-1-of-2 startPile">
         <button id="startGmDayBtn" class="btn btn-lg btn-light fw-bold border-white bg-white startGmDayBtn" >
             DAY WITH KIDS
         </button>
-        <div id="secondCol" class="questionCard questionCardFlip">
-          <!-- <div class="side front">
-            <h2>Front</h2>
-          </div>
-          <div class="side back">
-            <h3>back</h3>
-          </div> -->
+        <div id="secondCol" class="questionCard questionCardFlip" ondragover="allowDrop(event)">
+          
         </div>
       </div>
-      <div class="col-1-of-3">
-        <div id="thirdCol"></div>
-         <!-- <div class="">
-          <div id="para" class="discard"></div>
-        </div> -->
+      <div id="discard" class="col-1-of-2 discard" ondrop="drop(event)" ondragover="allowDrop(event)"v>
+        <!-- <div id="thirdCol" ></div>
+         <div><h2>DISCARD</h2></div> -->
       </div>
       </div>
     </div>
