@@ -81,6 +81,12 @@ html {
   background-position: bottom;
 }
 
+.frontNIGHT {
+  background: url("/images/nightCard.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
 .back {
   background-color: white;
   transform: rotateY(-180deg);
@@ -88,4 +94,8 @@ html {
 
 .questionCard.flipCard {
   transform: rotateY(180deg);
+}
+
+.space {
+  margin-top: 30px;
 }
