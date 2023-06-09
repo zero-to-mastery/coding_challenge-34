@@ -1,3 +1,4 @@
+//run the code only after the DOM has been fully parsed
 document.addEventListener("DOMContentLoaded", function () {
   let discard = document.getElementById("discard");
   discard.addEventListener("dragover", allowDrop);
@@ -29,15 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
         let inside = document.createTextNode(element.question);
         const cardPaper = document.createElement("div");
         const backCardPaper = document.createElement("div");
-        // const backCardBtn = document.createElement("button");
-        // backCardBtn.appendChild(document.createTextNode("DISCARD"));
+
         cardPaper.classList.add(
           "side",
           this.type === "day" ? "front" : "frontNIGHT"
         );
         backCardPaper.classList.add("side", "back");
         backCardPaper.appendChild(inside);
-        // backCardPaper.appendChild(backCardBtn);
 
         const cardWrapper = document.createElement("div");
         cardWrapper.classList.add("questionCard");
@@ -48,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cardWrapper.style.zIndex = 1000 - cardNumber;
 
         cardWrapper.setAttribute("draggable", "true");
-        cardWrapper.setAttribute("id", `card-${element.name}`); // You need to ensure this ID is unique for each card
+        cardWrapper.setAttribute("id", `card-${element.name}`); // Unique id for each card
 
         cardWrapper.addEventListener("dragstart", (event) => {
           event.dataTransfer.setData("text/plain", event.target.id);
@@ -81,13 +80,14 @@ document.addEventListener("DOMContentLoaded", function () {
   let nightQues;
   let dayQues;
   let freshDayQues;
-  let freshNightQues; // Declare a global variable for the Card instance
+  let freshNightQues; // Declared a global variable for the Card instance, for access throughout the code
 
   function startGame() {
     fetchQuestions().then(({ dayQues, nightQues }) => {
+      // Check if the data is fetched and available
       if (dayQues) {
         console.log("clicked");
-        freshDayQues = new Card(dayQues, "day", "secondCol");
+        freshDayQues = new Card(dayQues, "day", "secondCol"); // Assign to global variable
         freshDayQues.make();
       } else {
         console.log("Data not available yet");
@@ -107,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  //Drag and drop functionality
   function allowDrop(ev) {
     ev.preventDefault();
   }
@@ -150,13 +151,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  //Fetch JSON data
   function fetchQuestions() {
     return new Promise((resolve, reject) => {
       fetch("gameQuestions.json")
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-
+          //store data into variable
           let dayQues = data.dayBreakerQuestions;
           let nightQues = data.nightQuestions;
           resolve({ dayQues, nightQues });
@@ -169,19 +171,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const startDayCard = document.getElementById("startGmDayBtn");
-  console.log(startDayCard);
+  //Checks if startCard exists/available and proceeds to add the eventlistener.Wont try to add an event listener to a non-existing element, which would cause an error.
   startDayCard && startDayCard.addEventListener("click", startGame);
 
   const beginNightGm = document.getElementById("testNight");
-  console.log(beginNightGm);
+
   beginNightGm && beginNightGm.addEventListener("click", startNightGame);
 
-  //Click to discard functionality. Only shows on viewports 480px max-width
+  //Click button to discard functionality. Only shows on viewports 480px max-width
 
   const discardDayCard = document.getElementById("discardDay");
+
   discardDayCard &&
     discardDayCard.addEventListener("click", () => {
-      console.log("clicked discard");
       var dayCardCont = document.getElementById("secondCol");
       dayCardCont.removeChild(dayCardCont.firstChild);
 
@@ -193,7 +195,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const discardNightCard = document.getElementById("discardNight");
   discardNightCard &&
     discardNightCard.addEventListener("click", () => {
-      console.log("clicked night discard");
       let nightCardCont = document.getElementById("nightContainerID");
       nightCardCont.removeChild(nightCardCont.firstChild);
       if (freshNightQues) {
@@ -201,6 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+  // Touch surface event of swipe right to discard. Only shows on tablets
   let touchsurface = document.getElementById("touchSwipeCont"),
     startX,
     startY,
