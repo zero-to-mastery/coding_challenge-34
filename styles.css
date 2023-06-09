@@ -39,6 +39,11 @@ html {
   margin: 20px;
 }
 
+.gmBtn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 /* CARD */
 .cardContainer {
   display: flex;
@@ -46,7 +51,7 @@ html {
   perspective: 150rem;
 }
 .startPile {
-  width: 380px !important;
+  max-width: 28rem;
 }
 
 .discard {
@@ -55,6 +60,7 @@ html {
 }
 
 .questionCard {
+  width: 22rem;
   cursor: pointer;
   position: relative;
   transition: transform 1.5s ease;
@@ -62,8 +68,10 @@ html {
 }
 
 .side {
-  font-size: 2rem;
-  height: 38rem;
+  font-size: 2.15rem;
+  line-height: 1.5em;
+  text-align: center;
+  height: 34rem;
   width: 100%;
   position: absolute;
   top: 0;
@@ -79,16 +87,22 @@ html {
   background: url("/images/dayCardImg.jpg");
   background-size: cover;
   background-position: bottom;
+  opacity: 70%;
 }
 
 .frontNIGHT {
   background: url("/images/nightCard.jpg");
   background-size: cover;
   background-position: bottom;
+  opacity: 80%;
 }
 
 .back {
   background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10px;
   transform: rotateY(-180deg);
 }
 
@@ -98,4 +112,70 @@ html {
 
 .space {
   margin-top: 30px;
+}
+
+.vanish {
+  display: none;
+  color: red;
+}
+
+.bigBoxTest {
+  width: 600px;
+  height: 600px;
+}
+
+@media screen and (max-width: 480px) {
+  /* your CSS rules here */
+  .vanish {
+    display: block;
+    color: red;
+  }
+  .cardContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 150rem;
+    margin: 0 auto;
+  }
+  .discard {
+    min-height: auto; /* Adjust as needed */
+    min-width: auto; /* Adjust as needed */
+  }
+}
+
+.portrait {
+  display: none;
+}
+
+@media screen and (max-width: 376px) {
+  /* your CSS rules here */
+  .questionCard {
+    width: 18rem;
+  }
+
+  .side {
+    height: 28rem;
+    font-size: 1.875rem;
+    line-height: 1.375em;
+  }
+}
+
+@media (min-width: 539px) and (max-width: 1024px) {
+  .portrait {
+    display: block;
+  }
+  .cardContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 150rem;
+    margin: 0 auto;
+  }
+  .discard {
+    min-height: auto; /* Adjust as needed */
+    min-width: auto; /* Adjust as needed */
+  }
+  .questionCard {
+    width: 24rem;
+  }
 }

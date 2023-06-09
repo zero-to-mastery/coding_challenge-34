@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let deck = this.question;
       let stack = this.completeCard;
       let finished = this.finished;
+      let discardBtn = this.discardBtn;
 
       for (let index = 0; index < deck.length; index++) {
         const qCard = deck[index];
@@ -28,12 +29,15 @@ document.addEventListener("DOMContentLoaded", function () {
         let inside = document.createTextNode(element.question);
         const cardPaper = document.createElement("div");
         const backCardPaper = document.createElement("div");
+        // const backCardBtn = document.createElement("button");
+        // backCardBtn.appendChild(document.createTextNode("DISCARD"));
         cardPaper.classList.add(
           "side",
           this.type === "day" ? "front" : "frontNIGHT"
         );
         backCardPaper.classList.add("side", "back");
         backCardPaper.appendChild(inside);
+        // backCardPaper.appendChild(backCardBtn);
 
         const cardWrapper = document.createElement("div");
         cardWrapper.classList.add("questionCard");
@@ -171,4 +175,125 @@ document.addEventListener("DOMContentLoaded", function () {
   const beginNightGm = document.getElementById("testNight");
   console.log(beginNightGm);
   beginNightGm && beginNightGm.addEventListener("click", startNightGame);
+
+  //Click to discard functionality. Only shows on viewports 480px max-width
+
+  const discardDayCard = document.getElementById("discardDay");
+  discardDayCard &&
+    discardDayCard.addEventListener("click", () => {
+      console.log("clicked discard");
+      var dayCardCont = document.getElementById("secondCol");
+      dayCardCont.removeChild(dayCardCont.firstChild);
+
+      if (freshDayQues) {
+        freshDayQues.showNextCard();
+      }
+    });
+
+  const discardNightCard = document.getElementById("discardNight");
+  discardNightCard &&
+    discardNightCard.addEventListener("click", () => {
+      console.log("clicked night discard");
+      let nightCardCont = document.getElementById("nightContainerID");
+      nightCardCont.removeChild(nightCardCont.firstChild);
+      if (freshNightQues) {
+        freshNightQues.showNextCard();
+      }
+    });
+
+  let touchsurface = document.getElementById("touchSwipeCont"),
+    startX,
+    startY,
+    dist,
+    threshold = 50, //required min distance traveled to be considered swipe
+    allowedTime = 500, // maximum time allowed to travel that distance
+    elapsedTime,
+    startTime;
+
+  function handleswipe(isrightswipe) {
+    if (isrightswipe) {
+      var dayCardCont = document.getElementById("secondCol");
+
+      if (dayCardCont && freshDayQues) {
+        dayCardCont.removeChild(dayCardCont.firstChild);
+        freshDayQues.showNextCard();
+      }
+    } else {
+      console.log("not swiped right");
+    }
+  }
+
+  function handleswipeN(isrightswipe) {
+    if (isrightswipe) {
+      var nightCardCont = document.getElementById("nightContainerID");
+
+      if (nightCardCont && freshNightQues) {
+        nightCardCont.removeChild(nightCardCont.firstChild);
+        freshNightQues.showNextCard();
+      }
+    } else {
+      console.log("not swiped right");
+    }
+  }
+
+  touchsurface &&
+    touchsurface.addEventListener(
+      "touchstart",
+      function (e) {
+        var touchobj = e.changedTouches[0];
+        dist = 0;
+        startX = touchobj.pageX;
+        startY = touchobj.pageY;
+        startTime = new Date().getTime(); // record time when finger first makes contact with surface
+        e.preventDefault();
+      },
+      false
+    );
+
+  touchsurface &&
+    touchsurface.addEventListener(
+      "touchmove",
+      function (e) {
+        e.preventDefault(); // prevent scrolling when inside DIV
+      },
+      false
+    );
+
+  touchsurface &&
+    touchsurface.addEventListener(
+      "touchend",
+      function (e) {
+        var touchobj = e.changedTouches[0];
+        dist = touchobj.pageX - startX; // get total dist traveled by finger while in contact with surface
+        elapsedTime = new Date().getTime() - startTime; // get time elapsed
+        // check that elapsed time is within specified, horizontal dist traveled >= threshold, and vertical dist traveled <= 100
+
+        console.log("elapsedTime:", elapsedTime);
+        console.log("dist:", dist);
+        console.log("vertical dist:", Math.abs(touchobj.pageY - startY));
+        console.log("threshold", threshold);
+
+        var isDayPage = document.getElementById("secondCol") !== null;
+        var isNightPage = document.getElementById("nightContainerID") !== null;
+
+        var swiperightBol =
+          elapsedTime <= allowedTime &&
+          dist >= threshold &&
+          Math.abs(touchobj.pageY - startY) <= 500;
+
+        var swiperightBolN =
+          elapsedTime <= allowedTime &&
+          dist >= threshold &&
+          Math.abs(touchobj.pageY - startY) <= 500;
+
+        if (isDayPage) {
+          handleswipe(swiperightBol);
+        } else if (isNightPage) {
+          handleswipeN(swiperightBolN);
+        }
+
+        e.preventDefault();
+      },
+      false
+    );
 });
