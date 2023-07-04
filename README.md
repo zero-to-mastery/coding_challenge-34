@@ -47,6 +47,11 @@ Github Pages
 https://anjakhan.github.io/interview_qa/  
 ---------  
 
+daniel1david
+Github Pages
+https://daniel1david.github.io/coding-challenge-34-ZTM/
+---------
+
 
 ## One Last Thing!
 
