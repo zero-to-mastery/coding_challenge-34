@@ -1,0 +1,181 @@
+html {
+  min-height: 100%;
+}
+
+.cover-container {
+  max-width: 42em;
+}
+
+.bgImage {
+  background: url("/images/cover.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.bgDayImg {
+  background: url("/images/day.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.bgNightImg {
+  background: url("/images/evening.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.purpleColor {
+  background-color: #578ae2;
+}
+
+.topCushion {
+  margin-top: 200px;
+}
+
+.chooseGameBtn {
+  margin: 20px;
+}
+
+.gmBtn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* CARD */
+.cardContainer {
+  display: flex;
+  justify-content: space-around;
+  perspective: 150rem;
+}
+.startPile {
+  max-width: 28rem;
+}
+
+.discard {
+  min-height: 38rem; /* Adjust as needed */
+  min-width: 24rem; /* Adjust as needed */
+}
+
+.questionCard {
+  width: 22rem;
+  cursor: pointer;
+  position: relative;
+  transition: transform 1.5s ease;
+  transform-style: preserve-3d;
+}
+
+.side {
+  font-size: 2.15rem;
+  line-height: 1.5em;
+  text-align: center;
+  height: 34rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem rgba(10, 11, 12, 0.3);
+}
+
+.front {
+  background: url("/images/dayCardImg.jpg");
+  background-size: cover;
+  background-position: bottom;
+  opacity: 70%;
+}
+
+.frontNIGHT {
+  background: url("/images/nightCard.jpg");
+  background-size: cover;
+  background-position: bottom;
+  opacity: 80%;
+}
+
+.back {
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10px;
+  transform: rotateY(-180deg);
+}
+
+.questionCard.flipCard {
+  transform: rotateY(180deg);
+}
+
+.space {
+  margin-top: 30px;
+}
+
+.vanish {
+  display: none;
+  color: red;
+}
+
+.bigBoxTest {
+  width: 600px;
+  height: 600px;
+}
+
+@media screen and (max-width: 480px) {
+  /* your CSS rules here */
+  .vanish {
+    display: block;
+    color: red;
+  }
+  .cardContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 150rem;
+    margin: 0 auto;
+  }
+  .discard {
+    min-height: auto; /* Adjust as needed */
+    min-width: auto; /* Adjust as needed */
+  }
+}
+
+.portrait {
+  display: none;
+}
+
+@media screen and (max-width: 376px) {
+  /* your CSS rules here */
+  .questionCard {
+    width: 18rem;
+  }
+
+  .side {
+    height: 28rem;
+    font-size: 1.875rem;
+    line-height: 1.375em;
+  }
+}
+
+@media (min-width: 539px) and (max-width: 1024px) {
+  .portrait {
+    display: block;
+  }
+  .cardContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 150rem;
+    margin: 0 auto;
+  }
+  .discard {
+    min-height: auto; /* Adjust as needed */
+    min-width: auto; /* Adjust as needed */
+  }
+  .questionCard {
+    width: 24rem;
+  }
+}
